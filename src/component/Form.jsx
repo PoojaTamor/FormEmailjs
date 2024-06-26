@@ -1,9 +1,8 @@
-// import React, { useRef } from 'react'
 import {useFormik} from 'formik'
 import Validation from './Validation'
-// import axios from 'axios'
 import emailjs from '@emailjs/browser'
 import  toast from 'react-hot-toast'
+// email=pooja.ce.19.073@gmail.com
 const Form = () => {
   const initialValues={
     name:"",
@@ -11,26 +10,6 @@ const Form = () => {
     password: ""
   }
 
-//  const {values ,touched,handleSubmit, handleChange ,handleBlur ,errors}=  useFormik({
-//     initialValues:initialValues,
-//     validationSchema: Validation,
-//     onSubmit:(values ,action)=>{
-//       toast.success('Form submitted successfully!')
-//       console.log(values)
-//     //   axios.post('https://sheet.best/api/sheets/8942aa02-7c0b-48fd-b0f9-1cd63fd74a89',values).then((respons)=>console.log(respons))
-//       // axios.post('16sJFD6wcqcZw3TU6UcPp2zpLFBSbZ-c7uz_h1lF-QIM',values).then((respons)=>console.log(respons))
-//       emailjs.send('service_y0l55xt', 'template_5sqo8yc', values, 'YOUR_USER_ID')
-//       .then((response) => {
-//         console.log('Email sent successfully:', response);
-//         toast.success('Form submitted successfully!');
-//       }, (error) => {
-//         console.error('Error sending email:', error);
-//         toast.error('Failed to submit form. Please try again later.');
-//       });
-//     action.resetForm();
-  
-//     }
-//   })
 const { values, touched, handleSubmit, handleChange, handleBlur, errors } = useFormik({
   initialValues,
   validationSchema: Validation,
@@ -38,10 +17,10 @@ const { values, touched, handleSubmit, handleChange, handleBlur, errors } = useF
     const formData = {
       name: values.name,
       email: values.email,
-      message: values.password
+      password: values.password
     };
   
-    emailjs.send('service_u3e8p09', 'template_zfq071l', formData, 's-zOS9RHg1vpl_dgT')
+    emailjs.send('service_y0l55xt', 'template_5sqo8yc', formData, '-UMbo7ZYf20TopW6O')
       .then((response) => {
         console.log('Email sent successfully:', response);
         toast.success('Form submitted successfully!');
@@ -54,10 +33,6 @@ const { values, touched, handleSubmit, handleChange, handleBlur, errors } = useF
     
     toast.success('Form submitted successfully!');
     console.log(values);
- 
-    // emailjs.send('service_y0l55xt', 'template_5sqo8yc', values.current, {
-    //   publicKey: '-UMbo7ZYf20TopW6O',
-    // })
 
     action.resetForm();
   }
